@@ -20,21 +20,18 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>Hello I'm Soon. I'm a software engineer and blockchain enthusiast.</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
 
+      <section className={utilStyles.headingMd}>
+        <p>Hello I'm Soon. First of all, please excuse my poor css skills - I have a poor sense of Design and UX. I'm a software engineer and currently serving in ROK Army. I haved worked for Amazon for 2.5 years and developed primarily on building automation tools for setting up infrastructures which enable search for Alexa Music. I am always constantly learning and trying to improve in various ways. This website will pertain resume, personal projects, music covers, and etc. Please tune in! </p>
+      </section>
+      
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <h2 className={utilStyles.headingLg}>Personal Projects</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>
-                <a>{title}</a>
+                {title}
               </Link>
               <br />
               <small className={utilStyles.lightText}>
@@ -42,6 +39,12 @@ export default function Home({ allPostsData }) {
               </small>
             </li>
           ))}
+        </ul>
+        <h2>Books</h2>
+        <ul>
+          <li>
+            How to Stop Worrying by Dale Carnegie
+          </li>
         </ul>
       </section>
     </Layout>
