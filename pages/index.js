@@ -20,11 +20,9 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-
       <section className={utilStyles.headingMd}>
-        <p>Hello I'm Soon. First of all, please excuse my poor css skills - I have a poor sense of Design and UX. I'm a software engineer and currently serving in ROK Army. I haved worked for Amazon for 2.5 years and developed primarily on building automation tools for setting up infrastructures which enable search for Alexa Music. I am always constantly learning and trying to improve in various ways. This website will pertain resume, personal projects, music covers, and etc. Please tune in! </p>
+        <p>Hello I'm Soon. First of all, please excuse my poor css skills - I am still learning how to center div. I'm a software engineer and currently serving in ROK Army. I have worked for Amazon for 2.5 years and developed primarily on building automation tools for setting up infrastructures which enable search for Alexa Music. I am always constantly learning and trying to improve in various ways. This website will pertain resume, personal projects, music covers, and etc. Please tune in!! </p>
       </section>
-      
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Personal Projects</h2>
         <ul className={utilStyles.list}>
