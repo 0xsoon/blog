@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import Date from '../components/date'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
@@ -25,7 +26,14 @@ export default function Home({ allPostsData }) {
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className="my-4 text-xl font-bold">Project</h2>
-          <p>Coming soon.</p>
+          <ul className={utilStyles.list}>
+            <li className={utilStyles.listItem}>
+              <Link href={`/projects/webgl`}>
+                WebGL Playground
+              </Link>
+              <br />
+            </li>
+          </ul>
         <h2 className="my-4 text-xl font-bold">Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (

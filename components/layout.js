@@ -5,6 +5,7 @@ import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
 const name = 'Soon Sung Hong'
+const socialNetworks = [];w
 export const siteTitle = 'Soon Sung Hong'
 
 export default function Layout({ children, home }) {
@@ -18,6 +19,29 @@ export default function Layout({ children, home }) {
           {home ? (
             <>
               <h1 className={utilStyles.heading2Xl}>{name}</h1>
+              <div className="p-1 text-center">
+                (
+                  
+                )
+                <Image 
+                  src="/images/linkedin.png"
+                  fill 
+                  width="30px" 
+                  height="30px"
+                />
+                <Image 
+                  src="/images/instagram.png"
+                  fill 
+                  width="30px" 
+                  height="30px"
+                />
+                <Image 
+                  src="/images/linkedin.png"
+                  fill 
+                  width="30px" 
+                  height="30px"
+                />
+              </div>
             </>
           ) : (
             <>
