@@ -28,7 +28,7 @@ export default function Home({ allPostsData }) {
           <ul className={utilStyles.list}>
             <li class="text-white text-md">
               <a class="cursur-pointer hover:text-gray-500/100" href={`/projects/webgl`}>
-                WebGL Playground
+                WebGL Tutorial
               </a>
               <br />
             </li>
