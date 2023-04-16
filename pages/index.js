@@ -26,9 +26,15 @@ export default function Home({ allPostsData }) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className="my-4 text-xl font-bold">Project</h2>
           <ul className={utilStyles.list}>
+            <li class="my-2 text-white text-md">
+              <a class="cursur-pointer hover:text-gray-500" href={`/projects/three-demo`}>
+                Three.js Demo
+              </a>
+              <br />
+            </li>
             <li class="text-white text-md">
               <a class="cursur-pointer hover:text-gray-500/100" href={`/projects/webgl`}>
-                WebGL Tutorial
+                WebGL Demo
               </a>
               <br />
             </li>
