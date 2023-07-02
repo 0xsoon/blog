@@ -1,7 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
 const name = 'Soon Sung Hong'
@@ -23,28 +21,28 @@ export const siteTitle = 'Soon Sung Hong'
 
 export default function Layout({ children, home }) {
     return (
-      <div className={styles.container}>
+      <div className="max-w-lg mt-16 mx-auto">
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta name="og:title" content={siteTitle} />
           <script
             src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"
             integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
             defer 
           />
         </Head>
-        <header className={styles.header}>
+        <header className="flex flex-col items-center">
           {home ? (
             <>
-              <h1 className={utilStyles.heading2Xl}>{name}</h1>
-              <div className="flex justify-center align-middle cursor-pointer p-1">
+              <h1 className="text-4xl font-black">{name}</h1>
+              <div className="flex justify-center align-middle cursor-pointer mt-3">
                 {socialNetworks.map(({ name, link }) => (
                   <div class="mx-2.5">
                     <Link href={link}>
                       <Image 
                         src={`/images/${name}.png`}
-                        fill
+                        fill="true"
                         width="30px"
                         height="30px"
                       />
@@ -55,9 +53,9 @@ export default function Layout({ children, home }) {
             </>
           ) : (
             <>
-              <h2 className={utilStyles.heading2Xl}>
+              <h2 className="text-2xl">
                 <Link legacyBehavior href="/">
-                  <a className="text-black">{name}</a>
+                  <a className="text-4xl font-black mb-2">{name}</a>
                 </Link>
               </h2>
             </>
@@ -65,7 +63,7 @@ export default function Layout({ children, home }) {
         </header>
         <main>{children}</main>
         {!home && (
-          <div className={styles.backToHome}>
+          <div className="mt-3">
             <Link legacyBehavior href="/">
               <a>← Back to home</a>
             </Link>

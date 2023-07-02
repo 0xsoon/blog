@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Date from '../components/date'
 import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 
 export async function getStaticProps() {
@@ -23,9 +22,9 @@ export default function Home({ allPostsData }) {
       <section className="m-8">
         <p className="text-center">Hello I'm Soon, and I like programming. </p>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      <section class="text-lg p-1">
         <h2 className="my-4 text-xl font-bold">Project</h2>
-          <ul className={utilStyles.list}>
+          <ul class="list-none">
             <li class="my-2 text-white text-md">
               <a class="cursur-pointer hover:text-gray-500" href={`/projects/three-demo`}>
                 Three.js Demo
@@ -40,14 +39,14 @@ export default function Home({ allPostsData }) {
             </li>
           </ul>
         <h2 className="my-4 text-xl font-bold">Blog</h2>
-        <ul className={utilStyles.list}>
+        <ul class="list-none">
           {allPostsData.map(({ id, date, title }) => (
             <li class="text-md" key={id}>
               <Link href={`/posts/${id}`}>
                 {title}
               </Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <small className="text-base decoration-gray-300">
                 <Date dateString={date} />
               </small>
             </li>

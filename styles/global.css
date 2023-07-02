@@ -21,6 +21,16 @@ img {
   display: block;
 }
 
+p {
+  margin-bottom: 1rem;
+}
+
+ul, ol {
+  list-style-type: disc;
+  list-style-position: inside;
+  margin-bottom: 1rem; 
+}
+
 .heading2Xl {
   font-size: 2.5rem;
   line-height: 1.2;

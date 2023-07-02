@@ -1,4 +1,4 @@
-import utilStyles from '../../styles/utils.module.css'
+
 
 import Head from 'next/head'
 import Date from '../../components/date'
@@ -23,8 +23,8 @@ export default function Post({ postData }) {
         <title>{postData.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <h1 class="text-4xl">{postData.title}</h1>
+        <div class="text-lg my-4">
           <Date dateString={postData.date} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
