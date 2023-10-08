@@ -37,8 +37,8 @@ export default function Layout({ children, home }) {
             <>
               <h1 className="text-4xl font-black">{name}</h1>
               <div className="flex justify-center align-middle cursor-pointer mt-3">
-                {socialNetworks.map(({ name, link }) => (
-                  <div class="mx-2.5">
+                {socialNetworks.map(({ name, link }, idx) => (
+                  <div className="mx-2.5" key={idx}>
                     <Link href={link}>
                       <Image 
                         src={`/images/${name}.png`}
