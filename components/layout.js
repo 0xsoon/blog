@@ -19,7 +19,7 @@ const socialNetworks = [
 ];
 export const siteTitle = 'Soon Sung Hong'
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home, admin }) {
     return (
       <div className="max-w-lg mt-16 mx-auto">
         <Head>
@@ -49,6 +49,10 @@ export default function Layout({ children, home }) {
                     </Link>
                   </div>
                 ))}
+                {admin ? 
+                  <div>
+                    <h1>Admin Mode</h1>
+                  </div> : null}
               </div>
             </>
           ) : (
