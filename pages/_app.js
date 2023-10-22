@@ -1,5 +1,10 @@
 import '../styles/tailwind.css'
+import {wrapper} from "../store/store";
+import React from 'react';
 
-export default function App({ Component, pageProps }) {
+
+function MyApp({ Component, pageProps }) {
     return <Component {...pageProps} />
 }
+
+export default wrapper.withRedux(MyApp);
