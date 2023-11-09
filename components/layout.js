@@ -42,9 +42,8 @@ export default function Layout({ children, home, admin }) {
                     <Link href={link}>
                       <Image 
                         src={`/images/${name}.png`}
-                        fill="true"
-                        width="30px"
-                        height="30px"
+                        width={30}
+                        height={30}
                       />
                     </Link>
                   </div>

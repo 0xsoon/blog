@@ -1,14 +1,10 @@
 // tailwind.config.js
 module.exports = {
-    purge: [
+    content: [
       // Use *.tsx if using TypeScript
       './pages/**/*.js',
+      './pages/*.js',
       './components/**/*.js'
-    ],
-    theme: {
-      colors: {
-        'black': '000000'
-      }
-    }
+    ]
     // ...
   }

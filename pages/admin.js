@@ -1,15 +1,18 @@
+import { useState } from 'react';
+import { useRouter } from "next/navigation";
+
 import Layout from "../components/layout";
-import { setAuthState } from "../store/authSlice";
-import { useDispatch, useSelector } from "react-redux";
-import {wrapper} from "../store/store";
 
 
 export default function Admin(){
-    const {authState} = useSelector(state => state);
-    const dispatch = useDispatch();
+    const [ isLoading, setIsLoading ] = useState(false);
+    const [ user, setUser ] = useState(null);
+    const router = useRouter();
 
     async function onSubmit(event) {
         event.preventDefault();
+        setIsLoading(true);
+
         const formData = new FormData(event.target);
         const response = await fetch('/api/auth', {
             method: 'POST',
@@ -17,11 +20,12 @@ export default function Admin(){
             body: JSON.stringify(Object.fromEntries(formData.entries()))
         })
 
-        if (response.user){
-            dispatch(setAuthState(true));
-        } else {
-            dispatch(setAuthState(false));
-        }
+        const data = await response.json();
+        if (data.user){
+            router.push('/');
+        } 
+        
+        setIsLoading(false);
     }
 
     return (
@@ -29,12 +33,13 @@ export default function Admin(){
             <h1 className="text-lg font-bold">Admin Login</h1>
             <form onSubmit={onSubmit}>
                 <label for="user" >Username</label>
-                <input name="user" className="border-solid `border-black"/>
+                <input name="user" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
                 <label for="password">Password</label>
-                <input name="password" className="border-solid border-black"/>
-                <button className="border-solid border-black" type="submit">Login</button>
+                <input name="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                <button type="submit" disabled={isLoading} class="bg-gray-500 hover:bg-gray-700 text-white my-3 py-1 px-2 rounded">
+                    {isLoading ? "Loading..." : "Submit"}
+                </button>
             </form>
-            <div>{authState ? "Logged in" : "Not Logged In"}</div>
         </Layout>
     )
 }

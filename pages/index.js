@@ -25,10 +25,10 @@ export default function Home({ allPostsData }) {
       <section class="text-lg p-1">
         <h2 className="my-4 text-xl font-bold">Project</h2>
           <ul class="list-none">
-            <li class="text-white text-md">
-              <a class="cursur-pointer hover:text-gray-500/100" href={`/projects/webgl`}>
+            <li class="text-md">
+              <Link class="cursur-pointer hover:text-gray-500/100" href={`/projects/webgl`}>
                 WebGL Demo
-              </a>
+              </Link>
               <br />
             </li>
           </ul>

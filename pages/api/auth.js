@@ -35,12 +35,11 @@ export default function handler(req, res) {
             return res.status(428).json({text: "username or password required", user: null});
         }
         authenticate(user, password, function(err, user) {
-            console.log(user)
             if (user) return res.status(200).json({text: "success", user: user});
             if (err) return res.status(401).json({text: "fail", user: null});
         })
     } else if (req.method === "GET") {
-        res.status(500).json({ text: 'GET' })
+        res.status(500).json(user)
     } else {
         res.status(500).json({text: "OTHER"})
     }
