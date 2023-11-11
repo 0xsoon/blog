@@ -13,6 +13,7 @@
     "date-fns": "^2.26.0",
     "eslint-config-next": "^13.0.0",
     "gray-matter": "^4.0.3",
+    "iron-session": "^6.3.1",
     "next": "^14.0.1",
     "pbkdf2-password": "^1.2.1",
     "postcss-flexbugs-fixes": "^5.0.2",
