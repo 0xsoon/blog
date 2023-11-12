@@ -691,20 +691,8 @@ video {
   display: flex;
 }
 
-.h-5 {
-  height: 1.25rem;
-}
-
 .w-1\/2 {
   width: 50%;
-}
-
-.w-5 {
-  width: 1.25rem;
-}
-
-.w-4 {
-  width: 1rem;
 }
 
 .max-w-lg {
