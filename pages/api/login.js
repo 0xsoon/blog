@@ -3,7 +3,7 @@ import  bkfd2Password  from "pbkdf2-password";
 import { sessionOptions } from "lib/session";
 
 var adminUser = {
-    soon : {name: 'soon', password: 'myblog', isLogin: false}
+    soon : {name: 'soon', password: process.env.ADMIN_PASSWORD, isLogin: false}
 }
 
 var hash = bkfd2Password();

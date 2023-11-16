@@ -1,6 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from "next/router";
+
+import useUser from "lib/useUser";
+import fetchJson from 'lib/fetchJson';
 
 const name = 'Soon Sung Hong'
 const socialNetworks = [
@@ -19,7 +23,21 @@ const socialNetworks = [
 ];
 export const siteTitle = 'Soon Sung Hong'
 
-export default function Layout({ children, home, admin }) {
+export default function Layout({ children, home }) {
+    const { user, mutateUser } = useUser();
+    const router = useRouter();
+
+    const logOut = async (e) => {
+      e.preventDefault();
+      mutateUser(
+        await fetchJson("api/logout", { method: "POST"}),
+        {
+          revalidation: false
+        }
+      );
+      router.push("/admin")
+    }
+
     return (
       <div className="max-w-lg mt-16 mx-auto">
         <Head>
@@ -33,6 +51,23 @@ export default function Layout({ children, home, admin }) {
           />
         </Head>
         <header className="flex flex-col items-center">
+          { user?.isLoggedIn === true && (
+              <div>
+                <h1 className="font-bold">Admin Mode</h1>
+              </div>
+          )}
+          { 
+            user?.isLoggedIn && (
+              <div className="text-center">
+                <a 
+                  href="/api/logout"
+                  onClick={logOut}
+                >
+                  Logout
+                </a>
+              </div>
+            )
+          }
           {home ? (
             <>
               <h1 className="text-4xl font-black">{name}</h1>
@@ -48,10 +83,6 @@ export default function Layout({ children, home, admin }) {
                     </Link>
                   </div>
                 ))}
-                {admin ? 
-                  <div>
-                    <h1>Admin Mode</h1>
-                  </div> : null}
               </div>
             </>
           ) : (

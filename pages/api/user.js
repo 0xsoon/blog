@@ -12,8 +12,7 @@ async function userRoute(req, res) {
   } else {
     res.json({
       isLoggedIn: false,
-      login: "",
-      avatarUrl: "",
+      username: ""
     });
   }
 }
